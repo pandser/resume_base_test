@@ -1,4 +1,4 @@
-from models.resume import Base
+from models.base import Base
 from models.resume import ResumeModel
 
 
