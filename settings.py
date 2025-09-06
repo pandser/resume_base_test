@@ -6,6 +6,10 @@ from pathlib import Path
 
 load_dotenv()
 BASE_DIR = Path(__file__).parent
+DB_NAME=os.getenv('DB_NAME')
+POSTGRES_USER=os.getenv('POSTGRES_USER')
+POSTGRES_PASSWORD=os.getenv('POSTGRES_PASSWORD')
+DB_HOST=os.getenv('DB_HOST')
 
 
 class AuthJWT(BaseSettings):
@@ -18,8 +22,8 @@ class AuthJWT(BaseSettings):
 
 class Settings(BaseSettings):
     '''Общие настройки приложения.'''
-    # db_url: str = 'sqlite+aiosqlite:///db.sqlite3'
-    db_url: str = "postgresql+asyncpg://postgres:postgres@db/postgres"
+    db_url: str = (f"postgresql+asyncpg://{POSTGRES_USER}:"
+                    f"{POSTGRES_PASSWORD}@{DB_HOST}/{DB_NAME}")
     auth_jwt: AuthJWT = AuthJWT()
 
 
