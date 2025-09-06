@@ -40,8 +40,8 @@ async def create_user(data: UsersInDBSchema):
                 data=data,
                 session=session,
             )
-        except Exception as e:
-            return {'message': e}
+        except Exception:
+            return {'message': 'Пользователь уже существует.'}
     return {'message': f'user {user.username} created'}
 
 

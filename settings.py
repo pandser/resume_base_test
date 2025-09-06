@@ -18,7 +18,8 @@ class AuthJWT(BaseSettings):
 
 class Settings(BaseSettings):
     '''Общие настройки приложения.'''
-    db_url: str = 'sqlite+aiosqlite:///db.sqlite3'
+    # db_url: str = 'sqlite+aiosqlite:///db.sqlite3'
+    db_url: str = "postgresql+asyncpg://postgres:postgres@db/postgres"
     auth_jwt: AuthJWT = AuthJWT()
 
 

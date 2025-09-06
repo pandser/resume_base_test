@@ -41,7 +41,7 @@ class DatabaseHelper:
             session.add(user)
             await session.commit()
         except IntegrityError as e:
-            raise Exception(e)
+            raise Exception()
         return user
 
     async def get_user_from_db(
