@@ -7,6 +7,6 @@ from models import Base
 class UsersModel(Base):
     __tablename__ = 'users'
 
-    username: Mapped[str] = mapped_column(String(30))
-    email: Mapped[str]
-    password: Mapped[str]
+    username: Mapped[str] = mapped_column(String(30), unique=True)
+    email: Mapped[str] = mapped_column(unique=True)
+    hashed_password: Mapped[str]

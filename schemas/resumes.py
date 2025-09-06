@@ -1,4 +1,5 @@
 from pydantic import BaseModel
+from typing import Optional
 
 
 class ResumesAddSchema(BaseModel):
@@ -8,3 +9,8 @@ class ResumesAddSchema(BaseModel):
 
 class ResumesGetSchema(ResumesAddSchema):
     id: int
+
+
+class ResumesOptionalSchema(BaseModel):
+    title: str | None = None
+    content: str | None = None
