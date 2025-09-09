@@ -16,7 +16,7 @@ class AuthJWT(BaseSettings):
     '''Настройки для JWT-токена.'''
     private_key_path: Path = BASE_DIR / 'certs' / 'jwt-private.pem'
     public_key_path: Path = BASE_DIR / 'certs' / 'jwt-public.pem'
-    algorithm: str = os.getenv('ALGORITHM')
+    algorithm: str = 'RS256'
     access_token_expires_minutes: int = 15
 
 

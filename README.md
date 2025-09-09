@@ -20,13 +20,25 @@
 git clone git@github.com:pandser/resume_base_test.git
 ```
 
-#### 2. Запустить команду для сборки docker-образа
+#### 2. Сгенерировать ключи:
+
+генерация private_key для rs256
+```bash
+openssl genrsa -out filename-private.pem 2048
+```
+
+генерация prublic_key на основе private_key rs256
+```bash
+openssl rsa -in filename-private.pem -outform PEM -pubout -out filename-public.pem
+```
+
+#### 3. Запустить команду для сборки docker-образа
 ```bash
 docker compose up -d --build
 ```
-#### 3. Запустить команду для создания таблиц в базе данных
+#### 4. Запустить команду для создания таблиц в базе данных
 ```bash
-docker compose exec alembic upgrade head
+docker compose exec backend alembic upgrade head
 ```
 ### Документация к приложению будет доступна по адресу:
 http://localhost:8000/docs
